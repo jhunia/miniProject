@@ -13,6 +13,16 @@ const adminSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    resetTokenCode: {
+        type: String
+    },
+    resetTokenExpiry: {
+        type: Date
+    },
+    isAdmin: {
+        type: Boolean,
+        default: true
     }
 },{
     timestamps: true

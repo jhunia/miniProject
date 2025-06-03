@@ -12,6 +12,7 @@ export const validateAdmin = [
     body('password')
         .notEmpty()
         .withMessage('Password is required')
+        .isString()
         .isLength({min: 8})
         .isStrongPassword({
             minLength: 8,
@@ -20,5 +21,14 @@ export const validateAdmin = [
             minNumbers: 1,
             minSymbols: 1
         })
-        .withMessage('Password must be at least 8 characters long'),
+        .withMessage('Password must be at least 8 characters and include a lowercase and uppercase letter, a number, and a symbol'),
+/*    body('confirmPassword')
+        .notEmpty()
+        .withMessage('Confirm Password is required')
+        .custom((value, { req }) => {
+            if (value !== req.body.password) {
+                throw new Error('Passwords do not match');
+            }
+            return true;
+        }),*/
 ];
