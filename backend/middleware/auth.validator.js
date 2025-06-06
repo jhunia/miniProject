@@ -9,7 +9,7 @@ export const authValidator = [
 
     body('password')
     .notEmpty()
-    .isLength({min: 6})
-    .withMessage('Please provide a valid password. Password must be at least 6 characters long ')
+    .isLength({min: 8})
+    .withMessage('Please provide a valid password. Password must be at least 8 characters long ')
 
 ];

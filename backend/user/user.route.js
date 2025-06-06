@@ -19,8 +19,8 @@ const router = express.Router();
 
 
 
-router.post('/newUser', validateUser, validate, createUser);
-router.post('/loginUser', authValidator, validate, loginUser);
+router.post('/newUser',createUser);
+router.post('/loginUser',loginUser);
 router.post('/logoutUser', authorization, logoutUser);
 router.patch('/forgotPassword', resetTokenCodeCodeValidator, validate, forgotPasswordCodeGeneration);
 router.patch('/verifyResetCode', resetTokenCodeVerificationValidator, validate, verifyResetCode);

@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"; 
 import { hmacProcess } from "../middleware/hmac.js";
 import transporter from "../middleware/send.mail.js";
+import mongoose from "mongoose";
 
 
 export const createAdmin = async (req, res) => {
@@ -99,7 +100,7 @@ export const loginAdmin = async (req, res) => {
 //Logout Admin
 export const logoutAdmin = (req, res) => {
     try{
-            res.clearCookie("jwtToken",{
+            res.clearCookie("adminJwtToken",{
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
                 sameSite: "strict", 
