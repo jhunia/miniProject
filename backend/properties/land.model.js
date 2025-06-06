@@ -23,11 +23,11 @@ const landSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  /*owner: {
+  owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Admin",
     required: true
-  }*/
+  }
 }, { timestamps: true });
 
 export default mongoose.model("Land", landSchema);

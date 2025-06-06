@@ -28,16 +28,16 @@ const buildingSchema = new mongoose.Schema({
       required: true,
       unique: true
 
-    },
-   city: {
+     },
+    city: {
       type: String,
       required: true
-    },
+      },
     areaType: {
       type: String,
       enum: ['urban', 'suburban', 'rural'],
       default: 'urban'
-    }
+     }
   },
 
   bedrooms: {
@@ -81,10 +81,10 @@ const buildingSchema = new mongoose.Schema({
    imageUrl:{
     type: String,
    },
-    owner: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Admin',
-            required: true
+  owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Admin',
+      required: true
         }
     
 }, { timestamps: true });
