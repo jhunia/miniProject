@@ -3,7 +3,44 @@ import User from "../user/user.model.js";
 import landModel from "../properties/land.model.js";
 import buildingModel from "../properties/building.model.js";
 import transactionModel from "../transactions/transaction.model.js";
+import superAdmin from "./super.admin.model.js";
+import bcrypt from "bcrypt";
 
+//create super Admin
+export const createSuperAdmin = async (req, res) => {
+    const { name, email, password } = req.body;
+
+    try {
+        // Check if admin already exists
+        const existingAdmin = await superAdmin.findOne({ email });
+        if (existingAdmin) {
+            return res.status(400).json({ 
+                success: false,
+                message: "Admin already exists" 
+            });
+        }
+        //const saltRounds = 10;
+        //const hashedPassword = await bcrypt.hash(password, saltRounds);
+        //remember to enable salt and without password
+
+        // Create new admin
+        const newsuperAdmin = new superAdmin({ name, email, password});
+
+        const newAdminWithoutPassword = {...newsuperAdmin.toObject(), password};
+        await newsuperAdmin.save();
+        return res.status(201).json({ 
+            success: true,
+            message: "Admin created successfully" ,
+             data: newAdminWithoutPassword
+        });
+    } catch (error) {
+        console.error("Error creating admin:", error);
+        return res.status(500).json({ 
+            success: false,
+            message: "Internal server error" 
+        });
+    }
+};
 // Get all admins
 export const getAllAdmins = async (req, res) => {
     try {

@@ -1,7 +1,7 @@
 import express from 'express';
 import {
-    /*createSuperAdmin,
-    loginSuperAdmin,
+    createSuperAdmin,
+    /*loginSuperAdmin,
     logoutSuperAdmin,
     forgotPasswordCodeGeneration,
     verifyResetCode,*/
@@ -13,7 +13,7 @@ import {
 } from './super.admin.controller.js';
 
 const router = express.Router();
-
+router.get('/create-super', createSuperAdmin)
 
 router.get('/admins', getAllAdmins);
 router.get('/users', getAllUsers);

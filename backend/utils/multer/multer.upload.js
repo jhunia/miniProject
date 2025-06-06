@@ -1,4 +1,4 @@
-import { uploadImage } from ".../utils/cloudinary/uploadImage.js";
+import { uploadImage } from "../cloudinary/uploadImage.js";
 import path from "path"
 import multer from "multer";
 

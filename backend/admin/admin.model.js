@@ -23,7 +23,17 @@ const adminSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: true
-    }
+    },
+    bankDetails: {
+        accountNumber: { type: String },
+        bankName: { type: String },
+        accountName: { type: String },
+    },
+    mobileMoneyDetails: {
+        provider: { type: String },
+        accountNumber: { type: String },
+        accountName: { type: String },
+    },
 },{
     timestamps: true
 });

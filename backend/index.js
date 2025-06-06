@@ -2,8 +2,8 @@ import express from "express";
 import adminRoutes from "./admin/admin.route.js";
 import userRoutes from "./user/user.route.js";
 import superAdminRoutes from "./superAdmin/super.admin.routes.js";
-/*import propertyRoutes from "./properties/property.routes.js";
-import transactionRoutes from "./transactions/transaction.routes.js";*/
+import propertyRoutes from "./properties/property.route.js";
+/*import transactionRoutes from "./transactions/transaction.routes.js";*/
 import paystackRoutes from "./payment/paystack.routes.js";
 import dotenv from "dotenv";
 import { connectToDB } from "./config/mongodb.js";
@@ -25,8 +25,8 @@ connectToDB();
 app.use('/api/admin', adminRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/super-admin', superAdminRoutes);
-/*app.use('/api/properties', propertyRoutes);
-app.use('/api/transactions', transactionRoutes);*/
+app.use('/api/properties', propertyRoutes);
+/*app.use('/api/transactions', transactionRoutes);*/
 app.use('/api/paystack', paystackRoutes);
 app.use(cookieParser());
 

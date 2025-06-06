@@ -1,7 +1,7 @@
-import landModel from "./land.model";
-import buildingModel from "./building.model";
+import landModel from "../properties/land.model.js";
+import buildingModel from "../properties/building.model.js";
 import mongoose from "mongoose";
-import { upload_using_multer } from "../utils/multer/multer.upload";
+import { upload_using_multer } from "../utils/multer/multer.upload.js";
 import { uploadImage } from "../utils/cloudinary/uploadImage.js";
 import Admin from "../admin/admin.model.js";
 
